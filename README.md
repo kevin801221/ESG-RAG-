@@ -1,0 +1,2 @@
+# ESG-RAG-
+製作一個可以透過RAG的力量自動生成ESG報告書轉Excel結構化重點生成的系統Application
