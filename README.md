@@ -1,4 +1,4 @@
-# ESG-RAG-
+# ESG-RAG-AI轉換ESG永續報告書系統
 製作一個可以透過RAG的力量自動生成ESG報告書轉Excel結構化重點生成的系統Application
 
 ## 詳細計畫：
@@ -31,7 +31,7 @@
 
 ## 安裝步驟
 
-1. 克隆專案：
+1. clone專案：
 ```bash
 git clone https://github.com/yourusername/sustainability-rag.git
 cd sustainability-rag
@@ -177,16 +177,16 @@ class RAGConfig(BaseModel):
 
 ## 聯絡方式
 
-- 作者：[Your Name]
-- Email：[your.email@example.com]
-- GitHub：[your-github-profile]
+- 作者：
+- Email：
+- GitHub：
 
 ## 致謝
 
 感謝以下開源專案的支持：
 - LangChain
 - Unstructured
-- ChromaDB
+- ChromaDB, KDB.ai
 - OpenAI
 
 ---
