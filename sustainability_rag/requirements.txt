@@ -1,0 +1,10 @@
+gradio>=4.19.2
+llamaparse>=0.3.3
+llama-index>=0.9.48
+torch>=2.2.0
+pillow>=10.2.0
+transformers>=4.37.2
+python-dotenv>=1.0.1
+pandas>=2.2.0
+numpy>=1.26.4
+kdbai_client>=1.4.0
