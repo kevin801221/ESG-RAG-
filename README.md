@@ -1,4 +1,3 @@
-```markdown
 # ESG-RAG-AI 永續報告書轉換系統
 
 一個基於多模態 RAG（Retrieval Augmented Generation）的 ESG 永續報告書分析系統，能夠自動化提取和分析 ESG 相關指標數據，並生成結構化的 Excel 輸出。
@@ -31,7 +30,6 @@
 
 ## 專案結構
 
-```
 sustainability_rag/
 ├── .env                        # 環境變數配置
 ├── .gitignore                  # Git 忽略文件
@@ -42,45 +40,44 @@ sustainability_rag/
 │
 ├── src/
 │   ├── config/
-│   │   ├── __init__.py
+│   │   ├── init.py
 │   │   ├── config.yaml        # 基礎配置
 │   │   ├── metrics_schema.yaml # ESG指標schema
 │   │   └── config_loader.py   # 配置加載器
 │   │
 │   ├── data/
-│   │   ├── __init__.py
+│   │   ├── init.py
 │   │   ├── document_loader.py # 文檔加載器
 │   │   ├── llamaparse_loader.py # LlamaParse 加載器
 │   │   └── imagebind_loader.py  # ImageBind 圖片處理器
 │   │
 │   ├── processors/
-│   │   ├── __init__.py
+│   │   ├── init.py
 │   │   ├── base_processor.py  # 基礎處理器
 │   │   ├── text_processor.py  # 文本處理
 │   │   ├── table_processor.py # 表格處理
 │   │   └── chart_processor.py # 圖表處理
 │   │
 │   ├── embeddings/
-│   │   ├── __init__.py
+│   │   ├── init.py
 │   │   ├── text_embedder.py   # 文本嵌入
 │   │   └── multimodal_embedder.py # 多模態嵌入
 │   │
 │   ├── retrieval/
-│   │   ├── __init__.py
+│   │   ├── init.py
 │   │   ├── vector_store.py    # 向量存儲
 │   │   └── multimodal_retriever.py # 多模態檢索
 │   │
 │   ├── pipeline/
-│   │   ├── __init__.py
+│   │   ├── init.py
 │   │   └── rag_pipeline.py    # RAG主流程
 │   │
 │   └── utils/
-│       ├── __init__.py
+│       ├── init.py
 │       └── device_utils.py     # 設備管理工具
 │
 └── tests/
-    └── test_setup.py          # 環境設置測試
-```
+└── test_setup.py          # 環境設置測試
 
 ## 安裝步驟
 
