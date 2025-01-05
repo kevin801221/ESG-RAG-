@@ -1,9 +1,16 @@
+# src/config/config.yaml
+
+# 向量存儲配置
 vector_store:
   dimensions: 1024
   metric: cosine
   index_type: flat
+  chunk_size: 1000
+  chunk_overlap: 200
 
+# 模型配置
 models:
+  # LlamaParse 配置
   llamaparse:
     parsing_instructions: |
       這是一份永續報告書，包含多個ESG指標。
@@ -12,21 +19,29 @@ models:
       2. 表格中的數據
       3. 圖表展示的趨勢
       4. 各指標的所屬章節
-
+      5. 年度比較數據
+    
+  # ImageBind 配置
   imagebind:
-    device: cpu  # 或 cuda
-
+    use_half_precision: true
+    batch_size: 32
+    model_type: huge  # 可選: huge, large, base
+    
+  # 文本嵌入配置
   embedding:
     model_name: text-embedding-3-small
+    max_tokens: 8000
+    batch_size: 32
 
-metrics_schema:
-  - name: 員工全年平均學習時數
-    expected_unit: 小時
-    possible_sources:
-      - table
-      - text
-  - name: 整體薪酬在業界水準
-    expected_unit: 百分比
-    possible_sources:
-      - table
-      - chart
+# 優化配置
+optimization:
+  cache_dir: ".cache"
+  temp_dir: ".temp"
+  max_retries: 3
+  timeout: 30
+
+# 輸出配置
+output:
+  excel_template: "templates/esg_report_template.xlsx"
+  save_interim: true
+  interim_dir: "interim"
