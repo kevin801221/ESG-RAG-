@@ -1,0 +1,32 @@
+vector_store:
+  dimensions: 1024
+  metric: cosine
+  index_type: flat
+
+models:
+  llamaparse:
+    parsing_instructions: |
+      這是一份永續報告書，包含多個ESG指標。
+      請特別注意：
+      1. 數值型指標及其單位
+      2. 表格中的數據
+      3. 圖表展示的趨勢
+      4. 各指標的所屬章節
+
+  imagebind:
+    device: cpu  # 或 cuda
+
+  embedding:
+    model_name: text-embedding-3-small
+
+metrics_schema:
+  - name: 員工全年平均學習時數
+    expected_unit: 小時
+    possible_sources:
+      - table
+      - text
+  - name: 整體薪酬在業界水準
+    expected_unit: 百分比
+    possible_sources:
+      - table
+      - chart
