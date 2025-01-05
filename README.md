@@ -99,19 +99,38 @@ results_df.to_csv('output.csv', index=False)
 ```
 sustainability_rag/
 │
-├── src/                   # 源代碼
-│   ├── config/           # 配置文件
-│   ├── data/             # 數據處理
-│   ├── extractors/       # 提取器
-│   ├── embeddings/       # 嵌入模型
-│   ├── retrieval/        # 檢索系統
-│   ├── models/           # 模型封装
-│   └── pipeline/         # RAG流程
-│
-├── tests/                # 測試文件
-├── notebooks/            # 示例筆記本
-├── requirements.txt      # 依賴清單
-└── README.md            # 說明文檔
+├── src/
+│   ├── config/
+│   │   ├── __init__.py
+│   │   ├── config.yaml              # 基礎配置
+│   │   └── metrics_schema.yaml      # ESG指標schema
+│   │
+│   ├── data/
+│   │   ├── __init__.py
+│   │   ├── document_loader.py       # 基礎文檔載入器
+│   │   ├── llamaparse_loader.py     # LlamaParse處理結構化內容
+│   │   └── imagebind_loader.py      # ImageBind處理圖表內容
+│   │
+│   ├── processors/
+│   │   ├── __init__.py
+│   │   ├── base_processor.py        # 基礎處理器
+│   │   ├── text_processor.py        # 文本處理
+│   │   ├── table_processor.py       # 表格處理
+│   │   └── chart_processor.py       # 圖表處理
+│   │
+│   ├── embeddings/
+│   │   ├── __init__.py
+│   │   ├── text_embedder.py         # 文本嵌入
+│   │   └── multimodal_embedder.py   # 多模態嵌入
+│   │
+│   ├── retrieval/
+│   │   ├── __init__.py
+│   │   ├── vector_store.py          # 向量存儲
+│   │   └── multimodal_retriever.py  # 多模態檢索
+│   │
+│   └── pipeline/
+│       ├── __init__.py
+│       └── rag_pipeline.py          # RAG主流程
 ```
 
 ## 配置說明
