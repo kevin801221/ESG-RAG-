@@ -1,8 +1,55 @@
+# # src/config/config.yaml
+
+# # 向量存儲配置
+# vector_store:
+#   dimensions: 1024
+#   metric: cosine
+#   index_type: flat
+#   chunk_size: 1000
+#   chunk_overlap: 200
+
+# # 模型配置
+# models:
+#   # LlamaParse 配置
+#   llamaparse:
+#     parsing_instructions: |
+#       這是一份永續報告書，包含多個ESG指標。
+#       請特別注意：
+#       1. 數值型指標及其單位
+#       2. 表格中的數據
+#       3. 圖表展示的趨勢
+#       4. 各指標的所屬章節
+#       5. 年度比較數據
+    
+#   # ImageBind 配置
+#   imagebind:
+#     use_half_precision: true
+#     batch_size: 32
+#     model_type: huge  # 可選: huge, large, base
+    
+#   # 文本嵌入配置
+#   embedding:
+#     model_name: text-embedding-3-small
+#     max_tokens: 8000
+#     batch_size: 32
+
+# # 優化配置
+# optimization:
+#   cache_dir: ".cache"
+#   temp_dir: ".temp"
+#   max_retries: 3
+#   timeout: 30
+
+# # 輸出配置
+# output:
+#   excel_template: "templates/esg_report_template.xlsx"
+#   save_interim: true
+#   interim_dir: "interim"
 # src/config/config.yaml
 
 # 向量存儲配置
 vector_store:
-  dimensions: 1024
+  dimensions: 1536
   metric: cosine
   index_type: flat
   chunk_size: 1000
@@ -10,28 +57,17 @@ vector_store:
 
 # 模型配置
 models:
-  # LlamaParse 配置
+  llm_model: gpt-4-turbo-preview
   llamaparse:
-    parsing_instructions: |
-      這是一份永續報告書，包含多個ESG指標。
-      請特別注意：
-      1. 數值型指標及其單位
-      2. 表格中的數據
-      3. 圖表展示的趨勢
-      4. 各指標的所屬章節
-      5. 年度比較數據
-    
-  # ImageBind 配置
-  imagebind:
-    use_half_precision: true
-    batch_size: 32
-    model_type: huge  # 可選: huge, large, base
-    
-  # 文本嵌入配置
-  embedding:
-    model_name: text-embedding-3-small
-    max_tokens: 8000
-    batch_size: 32
+    result_type: markdown
+    api_key: ${LLAMA_CLOUD_API_KEY}
+  openai:
+    api_key: ${OPENAI_API_KEY}
+  
+# KDB.AI 配置
+kdbai:
+  endpoint: ${KDBAI_ENDPOINT}
+  api_key: ${KDBAI_API_KEY}
 
 # 優化配置
 optimization:
@@ -40,8 +76,11 @@ optimization:
   max_retries: 3
   timeout: 30
 
-# 輸出配置
-output:
-  excel_template: "templates/esg_report_template.xlsx"
-  save_interim: true
-  interim_dir: "interim"
+# 文檔處理配置
+document:
+  chunk_size: 1000
+  chunk_overlap: 200
+  supported_formats:
+    - .pdf
+    - .docx
+    - .xlsx
